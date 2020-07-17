@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Nube Colectiva">
+    <link rel="shortcut icon" href="https://nubecolectiva.com/favicon.ico" />
+
+    <meta name="theme-color" content="#000000" />    
+  
+    <title>Notificaciones con Node JS y Socket IO</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    
+    <link rel="icon" href="https://nubecolectiva.com/favicon.ico">
+    <title>title</title>
+
+    <style type="text/css">
+      .escribiendo {
+        font-size: 13px;
+        color: #58a7ea;
+      }
+
+      .contenedor {
+        margin-top: 200px;        
+      }
+
+      .ventanachat {
+        overflow-y: scroll;
+        height: 300px;
+        scroll-behavior: auto;
+      }
+
+      .txt_negrita {
+        font-weight: bold;
+      }
+    </style> 
+
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="https://nubecolectiva.com"><img src="https://nubecolectiva.com/img/logo.png" class="img-fluid"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExample07">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+              <a class="nav-link" href="https://nubecolectiva.com">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://blog.nubecolectiva.com" target="_blank">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+            </li> 
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <main role="main" class="container contenedor">
+
+      <!-- Ventana para mostrar los mensajes en el Chat -->
+      <div class="ventanachat container col-md-12 mt-5"></div>
+
+      <!-- Contenedor para mostrar el mensaje "Usuario esta escribiendo..." -->
+      <div class="escribiendo container col-md-12 mb-1"></div>  
+
+      <div class="container col-md-12"> 
+          
+        <div class="input-group mb-3">
+            
+          <div class="input-group" id="nombreusuario">
+            <label class="txt_negrita">Nombre de Usuario:</label>
+          </div>
+
+          <!-- Campo para definir un nombre de usuario en el chat -->
+          <input type="text" class="form-control" id="item" placeholder="Pedro"> 
+
+        </div>
+
+        <!-- Luego de definir el nombre de usuario, lo configuramos con el método 'configurarNombreUsuario()' -->
+        <input type="button" class="btn btn-primary" id="enviar" value="Ingresar al Chat" onclick="configurarNombreUsuario();">     
+
+      </div>
+
+    </main>
+
+
+    <footer class="text-muted mt-3 mb-3">
+        <div align="center">
+          Desarrollado por <a href="https://www.nubecolectiva.com" target="_blank">Nube Colectiva</a>
+      </div> 
+    </footer>
+
+    <!-- Instancio a Socket IO y a mi archivo chat.js -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+    
+  </body>
+  
+</html> 
